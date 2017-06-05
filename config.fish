@@ -67,3 +67,19 @@ function fish_prompt --description 'Write out the prompt'
     
     printf "\n%s%s%s%s" (set_color white) " " $suffix " "
 end
+
+
+
+
+function ff
+	osascript -e 'tell application "Finder"'\
+	 -e "if (1 <= (count Finder windows)) then"\
+	 -e "get POSIX path of (target of window 1 as alias)"\
+	 -e 'else' -e 'get POSIX path of (desktop as alias)'\
+	 -e 'end if' -e 'end tell'
+end
+
+
+function cdff
+	cd (ff $argv)
+end
