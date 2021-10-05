@@ -17,7 +17,7 @@ function fish_prompt --description 'Write out the prompt'
     end
 	
     function _git_branch_name
-        echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+        echo (git symbolic-ref --quiet HEAD 2>&1 | sed -e '/not a git/d' | sed -e 's|^refs/heads/||')
     end
     function _is_git_dirty
         echo (git status -s --ignore-submodules=dirty ^/dev/null)
