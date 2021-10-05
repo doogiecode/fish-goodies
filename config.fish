@@ -1,3 +1,5 @@
+source ~/.config/fish/local.fish
+
 function fish_prompt --description 'Write out the prompt'
 	set laststatus $status
 	
@@ -68,7 +70,7 @@ function fish_prompt --description 'Write out the prompt'
     printf "\n%s%s%s%s" (set_color white) " " $suffix " "
 end
 
-
+	
 
 
 function ff
